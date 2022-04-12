@@ -13,6 +13,9 @@ const App = () => {
 
     const contractABI = abi.abi;
 
+    const network = window.ethereum.networkVersion;
+    const [currNetwork, setNetwork] = useState(window.ethereum.networkVersion);
+
     const checkIfWalletIsConnected = async () => {
         try {
             const { ethereum } = window;
@@ -166,6 +169,38 @@ const App = () => {
         };
     }, []);
 
+    useEffect(() => {
+        // If they don't have an connected wallet, exit!
+        checkIfWalletIsConnected();
+
+        const checkNetwork = async () => {
+            try {
+                if (network !== currNetwork) {
+                    setNetwork(network);
+                    console.log("Network changed to: " + network);
+                } else {
+                    setNetwork(network);
+                }
+            } catch (error) {
+                console.error("Failed to get Network", error);
+            }
+        };
+
+        checkNetwork();
+    }, [network, currNetwork]);
+
+    if (currNetwork !== "4") {
+        return (
+            <div className="unsupported-network">
+                <h2>Please connect to Rinkeby</h2>
+                <p>
+                    This dapp only works on the Rinkeby network, please switch
+                    networks in your connected wallet.
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className="mainContainer">
             <div className="dataContainer">
@@ -176,7 +211,9 @@ const App = () => {
                     pretty impressive right? Connect your Ethereum wallet and
                     give me a wave!
                 </div>
-                <div className="bio">(Ps. Please dont send more than one wave)</div>
+                <div className="bio">
+                    (Ps. Please dont send more than one wave)
+                </div>
 
                 <textarea
                     rows="3"
