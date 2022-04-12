@@ -1,11 +1,10 @@
-# buildspace Wave Portal 👋 
+# Wave Portal 👋
 
-### **Welcome!**
-To get started with this course, clone this repo and follow these commands:
+This platform enables you to interact with the creator of this website by sending him waves/custom messages and store that data directly on the ethereum blockchain which can be retrieved.
 
-1. Run `npm install` at the root of your directory
-2. Run `npm run start` to start the project
-3. Start coding!
+It uses smart contracts to implement the functionalities which are like functions/code on the blockchain doing their respective tasks
 
-### **Questions?**
-Have some questions make sure you head over to your [buildspace Dashboard](https://app.buildspace.so/courses/CO02cf0f1c-f996-4f50-9669-cf945ca3fb0b) and link your Discord account so you can get access to helpful channels and your instructor!
+The Project is developed using Hardhat and currently runs on the Rinkeby Testnet of the Ethereum Blockchain.
+
+#### Link to the Website!
+[Click Here](https://wave-portal-frontend.herokuapp.com/) to redirect.
